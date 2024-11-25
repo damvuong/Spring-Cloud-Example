@@ -1,0 +1,30 @@
+services:
+  eureka-server:
+    build: spring-cloud-eureka-server/.
+    healthcheck:
+      test: [ "CMD", "curl", "-f", "http://localhost:8761/actuator/health" ]
+      interval: 30s
+      retries: 5
+      start_period: 10s
+      timeout: 10s
+  gateway:
+    build: spring-cloud-gateway/.
+    ports:
+      - "80:8080"
+    depends_on:
+      eureka-server:
+        condition: service_healthy
+  user-service:
+    build: spring-cloud-user-service/.
+    deploy:
+      replicas: 3
+    depends_on:
+      eureka-server:
+        condition: service_healthy
+  todo-list-service:
+    build: spring-cloud-todo-list-service/.
+    deploy:
+      replicas: 3
+    depends_on:
+      eureka-server:
+        condition: service_healthy

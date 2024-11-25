@@ -1,0 +1,15 @@
+spring:
+  application:
+    name: spring-cloud-gateway
+  cloud:
+    gateway:
+      routes:
+        - id: user_service
+          uri: http://10.0.0.10:8080
+          predicates:
+            - Path=/v1/user-service/**
+        - id: todo_list_service
+          uri: http://10.0.0.11:8080
+          predicates:
+            - Path=/v1/todo-list-service/**
+

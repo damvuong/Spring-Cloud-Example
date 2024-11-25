@@ -1,0 +1,23 @@
+services:
+  gateway:
+    build: spring-cloud-gateway/.
+    ports:
+      - "80:8080"
+    networks:
+      - local
+  user-service:
+    build: spring-cloud-user-service/.
+    networks:
+      local:
+        ipv4_address: 10.0.0.10
+  todo-list-service:
+    build: spring-cloud-todo-list-service/.
+    networks:
+      local:
+        ipv4_address: 10.0.0.11
+
+networks:
+  local:
+    ipam:
+      config:
+        - subnet: "10.0.0.0/24"

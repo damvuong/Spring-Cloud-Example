@@ -1,0 +1,18 @@
+spring:
+  application:
+    name: spring-cloud-gateway
+  cloud:
+    gateway:
+      routes:
+        - id: user_service
+          uri: lb://spring-cloud-user-service
+          predicates:
+            - Path=/v1/user-service/**
+        - id: todo_list_service
+          uri: lb://spring-cloud-todo-list-service
+          predicates:
+            - Path=/v1/todo-list-service/**
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eureka-server:8761/eureka/
