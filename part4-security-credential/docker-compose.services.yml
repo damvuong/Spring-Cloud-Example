@@ -1,6 +1,8 @@
 services:
   config-server:
     build: spring-cloud-config-server/.
+    networks:
+      - spring_cloud_network
     healthcheck:
       test: [ "CMD", "curl", "-f", "http://localhost:8080/actuator/health" ]
       interval: 30s
@@ -9,6 +11,8 @@ services:
       timeout: 10s
   eureka-server:
     build: spring-cloud-eureka-server/.
+    networks:
+      - spring_cloud_network
     healthcheck:
       test: [ "CMD", "curl", "-f", "http://localhost:8761/actuator/health" ]
       interval: 30s
@@ -22,6 +26,8 @@ services:
     build: spring-cloud-gateway/.
     ports:
       - "80:8080"
+    networks:
+      - spring_cloud_network
     healthcheck:
       test: [ "CMD", "curl", "-f", "http://localhost:8080/actuator/health" ]
     depends_on:
@@ -31,6 +37,8 @@ services:
     build: spring-cloud-user-service/.
     deploy:
       replicas: 2
+    networks:
+      - spring_cloud_network
     depends_on:
       gateway:
         condition: service_healthy
@@ -38,6 +46,13 @@ services:
     build: spring-cloud-todo-list-service/.
     deploy:
       replicas: 2
+    networks:
+      - spring_cloud_network
     depends_on:
       gateway:
         condition: service_healthy
+
+networks:
+  spring_cloud_network:
+    external: true
+    name: spring_cloud_network

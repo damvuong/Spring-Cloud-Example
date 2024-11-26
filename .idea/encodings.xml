@@ -19,5 +19,12 @@
     <file url="file://$PROJECT_DIR$/part3-centralized-config/spring-cloud-user-service/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/part3-centralized-config/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/part3-centralized-config/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/part4-security-credential/spring-cloud-config-server/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/part4-security-credential/spring-cloud-eureka-server/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/part4-security-credential/spring-cloud-gateway/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/part4-security-credential/spring-cloud-todo-list-service/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/part4-security-credential/spring-cloud-user-service/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/part4-security-credential/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/part4-security-credential/src/main/resources" charset="UTF-8" />
   </component>
 </project>

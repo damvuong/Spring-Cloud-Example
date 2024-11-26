@@ -1,0 +1,23 @@
+spring:
+  application:
+    name: spring-cloud-user-service
+  profiles:
+    active: dev
+  config:
+    import: optional:configserver:http://config-server:8080
+---
+spring:
+  application:
+    name: spring-cloud-user-service
+  profiles:
+    active: stg
+  config:
+    import: optional:configserver:http://config-server:8080
+---
+spring:
+  application:
+    name: spring-cloud-user-service
+  profiles:
+    active: prod
+  config:
+    import: optional:configserver:http://config-server:8080

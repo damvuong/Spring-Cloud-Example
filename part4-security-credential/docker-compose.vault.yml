@@ -1,0 +1,14 @@
+services:
+  vault:
+    container_name: "vault"
+    image: hashicorp/vault:latest
+    environment:
+      VAULT_DEV_ROOT_TOKEN_ID: "root-token"
+    ports:
+      - "8200:8200"
+    networks:
+      - spring_cloud_network
+
+networks:
+    spring_cloud_network:
+        name: spring_cloud_network
